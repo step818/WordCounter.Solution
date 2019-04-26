@@ -16,7 +16,9 @@ This exercise is designed to take a word from a user and then a sentence that ma
 | :-----------------    | :------------------ | :-------------- |
 | Returns a number pertaining to the amount of times a word was found in a string. | _Input:_ "hat" _Input:_ "That emphatic hateful manhattan chatterbox has a phat hat." | _Output:_ "You used "hat" 1 time."  |
 | Returns a number pertaining to the amount of times a word was found in a string if the word starts with an uppercase letter and the original word doesn't. | _Input:_ "is" _Input:_ "Is this a persistent sunrise or is it going to end?" | _Output:_ "You used "is" 2 times. |
-| Can account for numbers too, as long as the number isn't part of another word or number. | _Input:_ "2019" _Input:_ "In 2019, I have been awake for 201958 hours." | _Output:_ "You used "2019" 1 time." | | If a word isn't in the sentence, returns a message with 0. | _Input:_ "zero" _Input:_ "How many times?" | _Output:_ "You used "zero" 0 times." | | Doesn't count words with mixed uppercase letters. | _Input:_ "funky" _Input:_ "FuNkY behaviors call for fUnKy specs." | _Output:_ "You used "funky" 0 times." | Spaces or blank strings aren't taken into account of. | _Input:_ " " _Input:_ "I can't see you." | _Output:_ "Please enter a word with substance." |
+| Can account for numbers too, as long as the number isn't part of another word or number. | _Input:_ "2019" _Input:_ "In 2019, I have been awake for 201958 hours." | _Output:_ "You used "2019" 1 time." |
+| If a word isn't in the sentence, returns a message with 0. | _Input:_ "zero" _Input:_ "How many times?" | _Output:_ "You used "zero" 0 times." |
+| Counts words with mixed uppercase letters. | _Input:_ "funky" _Input:_ "FuNkY behaviors call for fUnKy specs." | _Output:_ "You used "funky" 3 times." | | Spaces or blank strings aren't taken into account of. | _Input:_ " " _Input:_ "I can't see you." | _Output:_ "Please enter a word with substance." |
 
 ## Setup/Installation Requirements
 

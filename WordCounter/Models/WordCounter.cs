@@ -3,21 +3,35 @@ using System;
 namespace WordCounter
 {
 
-  public class WordCounterClass
+  public class RepeatCounter
   {
     private static int _count;
     private static string _userWord;
     private static string _userSentence;
 
-    public WordCounterClass(int count, string word, string sentence)
+    public RepeatCounter(int count, string word, string sentence)
     {
       _count = count;
-      _word = word;
-      _sentence = sentence;
+      _userWord = word;
+      _userSentence = sentence;
     }
 
+    public static int GetCount()
+    {
+        return _count;
+    }
 
-    public static bool ValidateString(string userInput)
+    public static string GetWord()
+    {
+        return _userWord;
+    }
+
+    public static string GetSentence()
+    {
+        return _userSentence;
+    }
+
+    public bool ValidateString(string userInput)
     {
       if (userInput is string)
       {
@@ -29,7 +43,7 @@ namespace WordCounter
       }
     }
 
-    public static bool SplitSentence(string userSentence)
+    public bool SplitSentence(string userSentence)
     {
       string[] splitSentence = userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
       if (splitSentence is string[])
@@ -42,6 +56,7 @@ namespace WordCounter
       }
     }
   }
+
   public class Program
   {
   	public static void Main()

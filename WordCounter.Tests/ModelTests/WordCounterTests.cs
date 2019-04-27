@@ -10,14 +10,14 @@ namespace WordCounter.Tests
     [TestMethod]
     public void ValidateString_ChecksUserInput_True()
     {
-      WordCounter newWordCounter = new WordCounter();
+      RepeatCounter newWordCounter = new RepeatCounter();
       Assert.AreEqual(true, newWordCounter.ValidateString("hello"));
     }
 
     [TestMethod]
     public void SplitSentence_CheckIfArray_True()
     {
-      WordCounter newWordCounter = new WordCounter();
+      RepeatCounter newWordCounter = new RepeatCounter();
       Asssert.AreEqual(true, newWordCounter.SplitSentence("hello there, how are you?"));
     }
 

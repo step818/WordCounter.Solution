@@ -3,13 +3,13 @@ using System;
 namespace WordCounter
 {
 
-  public class RepeatCounter
+  public class WordCounter
   {
     private static int _count;
     private static string _userWord;
     private static string _userSentence;
 
-    public RepeatCounter(int count, string word, string sentence)
+    public WordCounter(int count, string word, string sentence)
     {
       _count = count;
       _userWord = word;
@@ -33,7 +33,7 @@ namespace WordCounter
 
     public bool ValidateString(string userInput)
     {
-      if (userInput is string)
+      if (_userWord is string)
       {
         return true;
       }
@@ -43,9 +43,9 @@ namespace WordCounter
       }
     }
 
-    public bool SplitSentence(string userSentence)
+    public bool SplitSentence()
     {
-      string[] splitSentence = userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
+      string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
       if (splitSentence is string[])
       {
         return true;
@@ -54,6 +54,22 @@ namespace WordCounter
       {
         return false;
       }
+    }
+
+    public int CountWord()
+    {
+      string word = GetWord();
+      int count = 0;
+      string[] splitSentence = userSentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
+      foreach(string word in splitSentence)
+      {
+          if(_userWord == word)
+          {
+            count++
+          }
+      }
+      _count = count;
+      return _count;
     }
   }
 
@@ -67,7 +83,6 @@ namespace WordCounter
   		Console.WriteLine("Enter a sentence with that word: ");
   		string userSentence = Console.ReadLine();
       ValidateString(userWord);
-  		string[] splitSentence = userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
       SplitSentence(userSentence);
   		foreach(string word in splitSentence)
   		{

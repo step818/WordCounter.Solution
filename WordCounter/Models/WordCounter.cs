@@ -31,9 +31,14 @@ namespace WordCounter
         return _userSentence;
     }
 
-    public bool ValidateString(string userWord)
+    public bool ValidateWord(string userWord)
     {
       return (_userWord is string);
+    }
+
+    public bool ValidateSentence(string userSentence)
+    {
+      return (_userSentence is string);
     }
 
     public bool SplitSentence(string _userSentence)

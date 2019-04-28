@@ -8,7 +8,7 @@ namespace WordCounter.Tests
   public class WordCounterTest
   {
     [TestMethod]
-    public void ValidateString_ChecksUserInput_True()
+    public void ValidateWord_ChecksUserWord_True()
     {
       //Arrange
       string testWord = "hi";
@@ -17,7 +17,20 @@ namespace WordCounter.Tests
       //Act
       WordCounter newWordCounter = new WordCounter(testWord, testSentence, testCount);
       //Assert
-      Assert.AreEqual(true, newWordCounter.ValidateString("hello"));
+      Assert.AreEqual(true, newWordCounter.ValidateWord("hello"));
+    }
+
+    [TestMethod]
+    public void ValidateSentence_CheckUserSentence_True()
+    {
+      //Arrange
+      string testWord = "yo";
+      string testSentence = "yo man";
+      int testCount = 1;
+      //Act
+      WordCounter newWordCounter = new WordCounter(testWord, testSentence, testCount);
+      //Assert
+      Assert.AreEqual(true, newWordCounter.ValidateSentence(testSentence));
     }
 
     [TestMethod]

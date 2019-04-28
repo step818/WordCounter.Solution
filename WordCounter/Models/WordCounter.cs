@@ -36,17 +36,10 @@ namespace WordCounter
       return (_userWord is string);
     }
 
-    public bool SplitSentence()
+    public bool SplitSentence(string _userSentence)
     {
       string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
-      if (splitSentence is string[])
-      {
-        return true;
-      }
-      else
-      {
-        return false;
-      }
+      return (splitSentence is string[]);
     }
 
     public int CountWord()

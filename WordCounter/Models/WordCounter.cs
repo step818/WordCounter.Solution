@@ -42,7 +42,7 @@ namespace WordCounter
       return (splitSentence is string[]);
     }
 
-    public int CountWord()
+    public int CountWord(string _userSentence)
     {
       string word = GetWord();
       int count = 0;

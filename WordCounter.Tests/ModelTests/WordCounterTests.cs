@@ -32,15 +32,18 @@ namespace WordCounter.Tests
       Assert.AreEqual(true, newWordCounter.SplitSentence("hello there"));
     }
 
-    // [TestMethod]
-    // public void RepeatCounter_CountsWordInAString_Int()
-    // {
-    //
-    //   userWord = "bike"
-    //   userSentence = "I have 3 bikes, my bike in Seattle is not really my bike, but my girlfriend's bike."
-    //
-    //   Assert.AreEqual(3, RepeatCounter(userWord, userSentence))
-    // }
+    [TestMethod]
+    public void CountWord_HowManyRepeats_Int()
+    {
+      //Arrange
+      string testword = "hello";
+      string _userSentence = "hello, how are you?";
+      string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
+      //Act
+      WordCounter newWordCounter = new WordCounter(testword, _userSentence, 1);
+      //Assert
+      Assert.AreEqual(1, newWordCounter.CountWord("hello"));
+    }
 
   }
 }

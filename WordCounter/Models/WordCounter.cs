@@ -5,21 +5,21 @@ namespace WordCounter
 
   public class WordCounter
   {
-    private static int _count;
+    // private static int _count;
     private static string _userWord;
     private static string _userSentence;
 
-    public WordCounter(int count, string word, string sentence)
+    public WordCounter(string word, string sentence)
     {
-      _count = count;
+      // _count = count;
       _userWord = word;
       _userSentence = sentence;
     }
-
-    public static int GetCount()
-    {
-        return _count;
-    }
+    //
+    // public static int GetCount()
+    // {
+    //     return _count;
+    // }
 
     public static string GetWord()
     {
@@ -60,41 +60,16 @@ namespace WordCounter
     {
       string word = GetWord();
       int count = 0;
-      string[] splitSentence = userSentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
-      foreach(string word in splitSentence)
+      string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
+      foreach(string element in splitSentence)
       {
-          if(_userWord == word)
+          if(_userWord == element)
           {
-            count++
+            count++;
           }
-      }
-      _count = count;
-      return _count;
+      } return count;
+
     }
   }
 
-  public class Program
-  {
-  	public static void Main()
-  	{
-  		int count = 0;
-  		Console.WriteLine("Enter a word: ");
-  		string userWord = Console.ReadLine();
-  		Console.WriteLine("Enter a sentence with that word: ");
-  		string userSentence = Console.ReadLine();
-      ValidateString(userWord);
-      SplitSentence(userSentence);
-  		foreach(string word in splitSentence)
-  		{
-  			if(userWord == word)
-  			{
-  				count++ ;
-  			}
-  		}
-  		Console.WriteLine("Your have used " + userWord + " " + count + " times.");
-  	}
-
-
-
   }
-}

@@ -5,21 +5,21 @@ namespace WordCounter
 
   public class WordCounter
   {
-    // private static int _count;
+    private static int _count;
     private static string _userWord;
     private static string _userSentence;
 
-    public WordCounter(string word, string sentence)
+    public WordCounter(string word, string sentence, int count)
     {
-      // _count = count;
       _userWord = word;
       _userSentence = sentence;
+      _count = count;
     }
-    //
-    // public static int GetCount()
-    // {
-    //     return _count;
-    // }
+
+    public static int GetCount()
+    {
+        return _count;
+    }
 
     public static string GetWord()
     {
@@ -31,16 +31,9 @@ namespace WordCounter
         return _userSentence;
     }
 
-    public bool ValidateString(string userInput)
+    public bool ValidateString(string userWord)
     {
-      if (_userWord is string)
-      {
-        return true;
-      }
-      else
-      {
-        return false;
-      }
+      return (_userWord is string);
     }
 
     public bool SplitSentence()

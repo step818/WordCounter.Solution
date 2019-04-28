@@ -11,7 +11,7 @@ namespace WordCounter.Tests
     public void ValidateString_ChecksUserInput_True()
     {
 
-      WordCounter newWordCounter = new WordCounter();
+      WordCounter newWordCounter = new WordCounter("hi", "yes", 9);
 
       Assert.AreEqual(true, newWordCounter.ValidateString("hello"));
     }

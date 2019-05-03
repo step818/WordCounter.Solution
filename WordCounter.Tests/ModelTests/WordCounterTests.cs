@@ -1,6 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WordCounter;
+using WordCounter.Models;
 
 namespace WordCounter.Tests
 {
@@ -17,7 +17,7 @@ namespace WordCounter.Tests
       //Act
       WordCounter newWordCounter = new WordCounter(testWord, testSentence, testCount);
       //Assert
-      Assert.AreEqual(true, newWordCounter.ValidateWord("hello"));
+      Assert.AreEqual(true, newWordCounter.ValidateWord(testWord));
     }
 
     [TestMethod]
@@ -37,12 +37,12 @@ namespace WordCounter.Tests
     public void SplitSentence_CheckIfArray_True()
     {
       //Arrange
-      string _userSentence = "hello there, how are you?";
-      string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
+      string userSentence = "hello there, how are you?";
+      string[] splitSentence = userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
       //Act
-      WordCounter newWordCounter = new WordCounter("hello", "there", 5);
+      WordCounter newWordCounter = new WordCounter("h", userSentence, 5);
       //Assert
-      Assert.AreEqual(true, newWordCounter.SplitSentence("hello there"));
+      Assert.AreEqual(true, newWordCounter.SplitSentence(userSentence));
     }
 
     [TestMethod]
@@ -50,12 +50,12 @@ namespace WordCounter.Tests
     {
       //Arrange
       string testword = "hello";
-      string _userSentence = "hello, how are you?";
+      string _userSentence = "hello, how are you?hello";
       string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
       //Act
       WordCounter newWordCounter = new WordCounter(testword, _userSentence, 1);
       //Assert
-      Assert.AreEqual(1, newWordCounter.CountWord("hello"));
+      Assert.AreEqual(2, newWordCounter.CountWord(_userSentence));
     }
 
   }

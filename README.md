@@ -1,14 +1,14 @@
 # _Word Counter with C#_
 
-#### _5th Independent project, 04/26/2019_
+#### _5th & 6th Independent project, 04/26/2019 - 05/05/2019_
 
 #### By _**Stephen Trewick**_
 
-## Program Name _Word Counter_ 5th Independent Project
+## Program Name _Word Counter_ 5th & 6th Independent Project
 
 ## Description
 
-This exercise is designed to take a word from a user and then a sentence that may have the word in it a certain number of times. The program will return to the user the amount of times the word is in their sentence. It will make sure that their word is not a part of another word. Test Methods are the main practice of this exercise and DRYing up our code to be able to use and edit our methods without altering our Program code.
+This exercise is designed to take a word from a user and then a sentence that may have the word in it a certain number of times. The program will return to the user the amount of times the word is in their sentence. It will make sure that their word is not a part of another word. Test Methods are a large part of the practice of this exercise and DRYing up our code to be able to use and edit our methods without altering our Program code. The next large practice part of this project is building out an MVC web user interface.
 
 ### Specs
 

@@ -47,14 +47,15 @@ namespace WordCounter.Models
       return (splitSentence is string[]);
     }
 
-    public int CountWord(string _userSentence)
+    public static int CountWord()
     {
       string word = GetWord();
+      string sentence = GetSentence();
       int count = 0;
-      string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
+      string[] splitSentence = sentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
       foreach(string element in splitSentence)
       {
-          if(_userWord == element)
+          if(word == element)
           {
             count++;
           }

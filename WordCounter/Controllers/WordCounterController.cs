@@ -15,7 +15,7 @@ namespace WordCounter.Controllers
     public ActionResult Create(string word, string sentence, int count)
     {
       CountWords newCount = new CountWords(word, sentence, count);
-      newCount.CountWord(sentence);
+      newCount.CountWord(word, sentence);
       return RedirectToAction("Index");
     }
 

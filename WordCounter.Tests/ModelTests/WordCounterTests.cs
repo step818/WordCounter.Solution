@@ -5,7 +5,7 @@ using WordCounter.Models;
 namespace WordCounter.Tests
 {
   [TestClass]
-  public class WordCounterTest
+  public class CountWordsTest
   {
     [TestMethod]
     public void ValidateWord_ChecksUserWord_True()
@@ -15,7 +15,7 @@ namespace WordCounter.Tests
       string testSentence = "hi yes";
       int testCount = 1;
       //Act
-      WordCounter newWordCounter = new WordCounter(testWord, testSentence, testCount);
+      CountWords newWordCounter = new CountWords(testWord, testSentence, testCount);
       //Assert
       Assert.AreEqual(true, newWordCounter.ValidateWord(testWord));
     }
@@ -28,7 +28,7 @@ namespace WordCounter.Tests
       string testSentence = "yo man";
       int testCount = 1;
       //Act
-      WordCounter newWordCounter = new WordCounter(testWord, testSentence, testCount);
+      CountWords newWordCounter = new CountWords(testWord, testSentence, testCount);
       //Assert
       Assert.AreEqual(true, newWordCounter.ValidateSentence(testSentence));
     }
@@ -40,7 +40,7 @@ namespace WordCounter.Tests
       string userSentence = "hello there, how are you?";
       string[] splitSentence = userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
       //Act
-      WordCounter newWordCounter = new WordCounter("h", userSentence, 5);
+      CountWords newWordCounter = new CountWords("h", userSentence, 5);
       //Assert
       Assert.AreEqual(true, newWordCounter.SplitSentence(userSentence));
     }
@@ -53,7 +53,7 @@ namespace WordCounter.Tests
       string _userSentence = "hello, how are you?hello";
       string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
       //Act
-      WordCounter newWordCounter = new WordCounter(testword, _userSentence, 1);
+      CountWords newWordCounter = new CountWords(testword, _userSentence, 1);
       //Assert
       Assert.AreEqual(2, newWordCounter.CountWord(_userSentence));
     }

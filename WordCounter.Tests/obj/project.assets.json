@@ -13600,11 +13600,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\steph\\desktop\\WordCounter.Solution\\WordCounter.Tests\\WordCounter.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\steph\\Desktop\\WordCounter.Solution\\WordCounter.Tests\\WordCounter.Tests.csproj",
       "projectName": "WordCounter.Tests",
-      "projectPath": "C:\\Users\\steph\\desktop\\WordCounter.Solution\\WordCounter.Tests\\WordCounter.Tests.csproj",
+      "projectPath": "C:\\Users\\steph\\Desktop\\WordCounter.Solution\\WordCounter.Tests\\WordCounter.Tests.csproj",
       "packagesPath": "C:\\Users\\steph\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\steph\\desktop\\WordCounter.Solution\\WordCounter.Tests\\obj\\",
+      "outputPath": "C:\\Users\\steph\\Desktop\\WordCounter.Solution\\WordCounter.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13621,8 +13621,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\steph\\desktop\\WordCounter.Solution\\WordCounter\\WordCounter.csproj": {
-              "projectPath": "C:\\Users\\steph\\desktop\\WordCounter.Solution\\WordCounter\\WordCounter.csproj"
+            "C:\\Users\\steph\\Desktop\\WordCounter.Solution\\WordCounter\\WordCounter.csproj": {
+              "projectPath": "C:\\Users\\steph\\Desktop\\WordCounter.Solution\\WordCounter\\WordCounter.csproj"
             }
           }
         }

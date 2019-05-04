@@ -3,13 +3,13 @@ using System;
 namespace WordCounter.Models
 {
 
-  public class WordCounter
+  public class CountWords
   {
     private static int _count;
     private static string _userWord;
     private static string _userSentence;
 
-    public WordCounter(string word, string sentence, int count)
+    public CountWords(string word, string sentence, int count)
     {
       _userWord = word;
       _userSentence = sentence;

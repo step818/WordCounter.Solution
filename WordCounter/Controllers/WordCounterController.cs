@@ -8,13 +8,15 @@ namespace WordCounter.Controllers
     [HttpGet("/counter")]
     public ActionResult Index()
     {
-
+      return View();
     }
 
     [HttpPost("/answer")]
-    public ActionResult Create(string word, string sentence)
+    public ActionResult Create(string word, string sentence, int count)
     {
-      
+      CountWords newCount = new CountWords(word, sentence, count);
+      newCount.CountWord(sentence);
+      return RedirectToAction("Index");
     }
 
   }

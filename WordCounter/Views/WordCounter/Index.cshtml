@@ -1,0 +1,18 @@
+@using WordCounter.Models
+
+@if (CountWords.CountWord() == 0)
+{
+    <p>You need to enter some words for me to count</p>
+}
+
+@if (CountWords.CountWord() > 0)
+{
+    <h1>Here you go:</h1>
+    <p>
+        @CountWords.GetWord()<br><br>
+        @CountWords.GetSentence()<br><br>
+        @CountWords.CountWord()
+    </p>
+}
+<br><br>
+<a href="/new">Impressed? Try again.</a>

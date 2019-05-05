@@ -1,21 +1,11 @@
 @using WordCounter.Models;
 
-@if (CountWords.CountWord() == 0)
+@if (Model.Count == 0)
 {
-    <p>You need to enter some words for me to count</p>
-    <br>
-    <a href="new">Form to fill out</a>
-
+  <p>No games yet</p>
 }
 
-@if (CountWords.CountWord() > 0)
+@foreach (var thing in Model)
 {
-    <h1>Here you go:</h1>
-    <p>
-        @CountWords.GetWord()<br><br>
-        @CountWords.GetSentence()<br><br>
-        @CountWords.CountWord()
-    </p>
-    <br><br>
-    <a href="/new">Impressed? Try again.</a>
+  <p>Something should go here</p>
 }

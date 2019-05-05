@@ -1,4 +1,5 @@
 using System;
+using WordCounter;
 
 namespace WordCounter.Models
 {
@@ -47,15 +48,15 @@ namespace WordCounter.Models
       return (splitSentence is string[]);
     }
 
-    public static int CountWord()
+    public int CountWord()
     {
-      string word = GetWord();
-      string sentence = GetSentence();
+      // string word = GetWord();
+      // string sentence = GetSentence();
       int count = 0;
-      string[] splitSentence = sentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
+      string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
       foreach(string element in splitSentence)
       {
-          if(word == element)
+          if(_userWord == element)
           {
             count++;
           }

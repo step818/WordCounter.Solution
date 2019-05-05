@@ -6,28 +6,24 @@ namespace WordCounter.Models
 
   public class CountWords
   {
-    private static int _count;
-    private static string _userWord;
-    private static string _userSentence;
 
-    public CountWords(string word, string sentence, int count)
+    private string _userWord;
+    private string _userSentence;
+
+    public CountWords(string word, string sentence)
     {
       _userWord = word;
       _userSentence = sentence;
-      _count = count;
+
     }
 
-    public static int GetCount()
-    {
-        return _count;
-    }
 
-    public static string GetWord()
+    public string GetWord()
     {
         return _userWord;
     }
 
-    public static string GetSentence()
+    public string GetSentence()
     {
         return _userSentence;
     }
@@ -48,15 +44,15 @@ namespace WordCounter.Models
       return (splitSentence is string[]);
     }
 
-    public int CountWord()
+    public int CountWord(string word, string sentence)
     {
       // string word = GetWord();
       // string sentence = GetSentence();
       int count = 0;
-      string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
+      string[] splitSentence = sentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
       foreach(string element in splitSentence)
       {
-          if(_userWord == element)
+          if(word == element)
           {
             count++;
           }

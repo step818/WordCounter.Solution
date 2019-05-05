@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using WordCounter.Models;
-using System;
 
 namespace WordCounter.Controllers
 {
@@ -12,11 +11,11 @@ namespace WordCounter.Controllers
       return View();
     }
 
-    [HttpPost("/answer")]
-    public ActionResult Create(string word, string sentence, int count)
+    [HttpPost("/counter")]
+    public ActionResult Create(string word, string sentence)
     {
-      CountWords newCount = new CountWords(word, sentence, count);
-      int thisMany = newCount.CountWord();
+      CountWords newCount = new CountWords(word, sentence);
+      int thisMany = newCount.CountWord(word, sentence);
       return RedirectToAction("Index");
     }
 

@@ -1,62 +1,52 @@
-using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WordCounter.Models;
+using System.Collections.Generic;
+using System;
 
 namespace WordCounter.Tests
 {
   [TestClass]
-  public class CountWordsTest
+  public class WordTest : IDisposable
   {
-    [TestMethod]
-    public void ValidateWord_ChecksUserWord_True()
+    public void Dispose()
     {
-      //Arrange
-      string testWord = "hi";
-      string testSentence = "hi yes";
-      int testCount = 1;
-      //Act
-      CountWords newWordCounter = new CountWords(testWord, testSentence, testCount);
-      //Assert
-      Assert.AreEqual(true, newWordCounter.ValidateWord(testWord));
+      Word.ClearAll();
     }
 
     [TestMethod]
-    public void ValidateSentence_CheckUserSentence_True()
+    public void WordConstructor_CreatesInstanceOfWord_Word()
     {
-      //Arrange
-      string testWord = "yo";
-      string testSentence = "yo man";
-      int testCount = 1;
-      //Act
-      CountWords newWordCounter = new CountWords(testWord, testSentence, testCount);
-      //Assert
-      Assert.AreEqual(true, newWordCounter.ValidateSentence(testSentence));
+      Word newWord = new Word("Test");
+      Assert.AreEqual(typeof(Word), newWord.GetType());
     }
 
     [TestMethod]
-    public void SplitSentence_CheckIfArray_True()
+    public void GetWord_ReturnsDescription_String()
     {
-      //Arrange
-      string userSentence = "hello there, how are you?";
-      string[] splitSentence = userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
-      //Act
-      CountWords newWordCounter = new CountWords("h", userSentence, 5);
-      //Assert
-      Assert.AreEqual(true, newWordCounter.SplitSentence(userSentence));
+      string userWord = "dog.";
+      Item newWord = new Word(userWord);
+      string result = newWord.GetWord();
+      Assert.AreEqual(userWord, result);
     }
 
     [TestMethod]
-    public void CountWord_HowManyRepeats_Int()
+    public void GetId_ItemsInstantiateWithIdAndGetterReturns_int()
     {
-      //Arrange
-      string testword = "hello";
-      string _userSentence = "hello, how are you?hello";
-      string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
-      //Act
-      CountWords newWordCounter = new CountWords(testword, _userSentence, 1);
-      //Assert
-      Assert.AreEqual(2, newWordCounter.CountWord(_userSentence));
+      string description = "Walk the dog.";
+      Item newItem = new Item(description);
+      int result = newItem.GetId();
+      Assert.AreEqual(1, result);
     }
 
+    [TestMethod]
+    public void Find_ReturnsCoreectItem_Item()
+    {
+      string description01 = "Walk the dog";
+      string description02 = "Wash the dishes";
+      Item newItem1 = new Item(description01);
+      Item newItem2 = new Item(description02);
+      Item result = Item.Find(2);
+      Assert.AreEqual(newItem2, result);
+    }
   }
 }

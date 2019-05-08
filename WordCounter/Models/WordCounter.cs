@@ -1,64 +1,86 @@
 using System;
-using WordCounter;
+using System.Collections.Generic;
 
 namespace WordCounter.Models
 {
-
-  public class CountWords
+  public class Word
   {
+      private string _word;
+      private string _sentence;
+      private int _id;
+      private static List<Word> _instances = new List<Word>{};
 
-    private string _userWord;
-    private string _userSentence;
-
-    public CountWords(string word, string sentence)
-    {
-      _userWord = word;
-      _userSentence = sentence;
-
-    }
-
-
-    public string GetWord()
-    {
-        return _userWord;
-    }
-
-    public string GetSentence()
-    {
-        return _userSentence;
-    }
-
-    public bool ValidateWord(string userWord)
-    {
-      return (_userWord is string);
-    }
-
-    public bool ValidateSentence(string userSentence)
-    {
-      return (_userSentence is string);
-    }
-
-    public bool SplitSentence(string _userSentence)
-    {
-      string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
-      return (splitSentence is string[]);
-    }
-
-    public int CountWord(string word, string sentence)
-    {
-      // string word = GetWord();
-      // string sentence = GetSentence();
-      int count = 0;
-      string[] splitSentence = sentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
-      foreach(string element in splitSentence)
+      public Word (string word, string sentence)
       {
-          if(word == element)
+          _word = word;
+          _sentence = sentence;
+          _instances.Add(this);
+          _id = _instances.Count;
+      }
+
+      public string GetWord()
+      {
+          return _word;
+      }
+      public string GetSentence()
+      {
+          return _sentence;
+      }
+
+      public bool ValidateWord(string userWord)
+      {
+        return (_userWord is string);
+      }
+
+      public bool ValidateSentence(string userSentence)
+      {
+        return (_userSentence is string);
+      }
+
+      public bool SplitSentence(string _userSentence)
+      {
+        string[] splitSentence = _userSentence.ToLower().Split(' ', ',', '.', '!', ':', ';', '/', '?', '+');
+        return (splitSentence is string[]);
+      }
+
+      public int CountWord(string word, string sentence)
+      {
+          // string word = GetWord();
+          // string sentence = GetSentence();
+          int count = 0;
+          string[] splitSentence = sentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
+          foreach(string element in splitSentence)
           {
-            count++;
-          }
-      } return count;
+              if(word == element)
+              {
+                count++;
+              }
+          } return count;
 
-    }
-  }
+      }
+
+      public static List<Word> GetAll()
+      {
+          return _instances;
+      }
+
+      public static void ClearAll()
+      {
+          _instances.Clear();
+      }
+
+      public void SetWord(string newWord)
+      {
+        _word = newWord;
+      }
+      public int GetId()
+      {
+        return _id;
+      }
+      public static Word Find(int searchId)
+      {
+        return _instances[searchId-1];
+      }
 
   }
+}

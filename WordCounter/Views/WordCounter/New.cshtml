@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Form</title>
+    <title>New Form</title>
   </head>
   <body>
-    <h2>Pick a word that holds true to you</h2>
-    <form action="/counter" method="post">
-      <label for="word">Word</label>
+    <h1>Word Countert</h1>
+
+    <form action="/words" method="post">
+
+      <label for="word">Add a word</label>
       <input id="word" name="word" type="text">
 
       <label for="sentence">Sentence</label>
       <input id="sentence" name="sentence" type="text">
 
-      <button type="submit">Count</button>
+      <button type="submit">Submit</button>
     </form>
+
   </body>
 </html>

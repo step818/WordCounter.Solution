@@ -1,23 +1,47 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using WordCounter.Models;
 
 namespace WordCounter.Controllers
 {
-  public class WordCounterController : Controller
+  public class WordsController : Controller
   {
-    [HttpGet("/counter/new")]
+
+    [HttpGet("/words")]
+    public ActionResult Index()
+    {
+      List<Word> allWords = Word.GetAll();
+      return View(allWords);
+    }
+
+    [HttpGet("/words/new")]
     public ActionResult New()
     {
       return View();
     }
 
-    [HttpPost("/counter")]
+    [HttpPost("/words")]
     public ActionResult Create(string word, string sentence)
     {
-      CountWords newCount = new CountWords(word, sentence);
-      int thisMany = newCount.CountWord(word, sentence);
+      Word myWord = new Word(word, sentence);
+      int thisMany = myWord.CountWord(word, sentence);
       return RedirectToAction("Index");
     }
+
+    [HttpPost("/words/delete")]
+    public ActionResult DeleteAll()
+    {
+      Item.ClearAll();
+      return View();
+    }
+
+    [HttpGet("/words/{id}")]
+    public ActionResult Show(int id)
+    {
+      Word word = Word.Find(id);
+      return View(word);
+    }
+
 
   }
 }

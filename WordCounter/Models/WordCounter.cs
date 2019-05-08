@@ -29,12 +29,12 @@ namespace WordCounter.Models
 
       public bool ValidateWord(string userWord)
       {
-        return (_userWord is string);
+        return (_word is string);
       }
 
       public bool ValidateSentence(string userSentence)
       {
-        return (_userSentence is string);
+        return (_sentence is string);
       }
 
       public bool SplitSentence(string _userSentence)
@@ -43,15 +43,15 @@ namespace WordCounter.Models
         return (splitSentence is string[]);
       }
 
-      public int CountWord(string word, string sentence)
+      public int CountWord()
       {
-          // string word = GetWord();
+          // string repeatWord = GetWord();
           // string sentence = GetSentence();
           int count = 0;
-          string[] splitSentence = sentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
+          string[] splitSentence = _sentence.ToLower().Split(' ', ',', '.', '!', ';', ':', '/', '?', '+');
           foreach(string element in splitSentence)
           {
-              if(word == element)
+              if(_word == element)
               {
                 count++;
               }
@@ -81,6 +81,8 @@ namespace WordCounter.Models
       {
         return _instances[searchId-1];
       }
+
+
 
   }
 }

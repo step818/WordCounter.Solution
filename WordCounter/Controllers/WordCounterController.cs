@@ -24,14 +24,14 @@ namespace WordCounter.Controllers
     public ActionResult Create(string word, string sentence)
     {
       Word myWord = new Word(word, sentence);
-      int thisMany = myWord.CountWord(word, sentence);
+      int thisMany = myWord.CountWord();
       return RedirectToAction("Index");
     }
 
     [HttpPost("/words/delete")]
     public ActionResult DeleteAll()
     {
-      Item.ClearAll();
+      Word.ClearAll();
       return View();
     }
 

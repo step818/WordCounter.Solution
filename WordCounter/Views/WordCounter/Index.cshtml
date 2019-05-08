@@ -11,9 +11,9 @@
 {
   @foreach (Word word in Model)
   {
-  <h2>Your word is @word.GetWord()</h2>
-  <h2>Your sentence is @word.GetSentence()</h2>
-  <h1> @word.Getword() is used @word.CountWord() times.</h1>
+  <h2>You chose @word.GetWord()</h2>
+  <h2>is @word.GetSentence()</h2>
+  <h1> @word.GetWord() is used @word.CountWord() times.</h1>
   }
 }
 
